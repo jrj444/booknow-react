@@ -5,9 +5,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-::after,::before{
+
+::after, ::before {
   box-sizing: border-box;
 }
+
+ol, ul {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
 }
