@@ -23,9 +23,9 @@ const NavWrapper = styled.nav`
           margin-bottom: 2px;
         }
         &.selected {
-          color: orangered;
+          color: #ff6600;
           .icon{
-            fill: orangered;
+            fill: #ff6600;
           }
         }
       }
