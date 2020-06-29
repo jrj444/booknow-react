@@ -5,6 +5,11 @@ import styled from 'styled-components';
 const TagsSection = styled.section`
   background: #ffffff;
   padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-grow: 1;
   > ol {
     display: flex;
     margin: 0 -12px;
@@ -25,7 +30,6 @@ const TagsSection = styled.section`
     margin-top: 8px;
   }
 `;
-
 
 const NotesSection = styled.section`
   background: #f5f5f5;
@@ -96,14 +100,19 @@ const NumberPadSection = styled.section`
       &.zero {
         width: 50%;
       }
-      
     }
   }
 `;
 
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column;
+`
+
+
 function Money() {
   return (
-    <Layout>
+    <MyLayout>
       <TagsSection>
         <ol>
           <li>衣</li>
@@ -144,7 +153,7 @@ function Money() {
           <button>.</button>
         </div>
       </NumberPadSection>
-    </Layout>
+    </MyLayout>
   );
 }
 
