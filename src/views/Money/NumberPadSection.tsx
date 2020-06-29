@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React from 'react';
 
 const Wrapper = styled.section`
   display: flex;
@@ -30,15 +30,24 @@ const Wrapper = styled.section`
   }
 `;
 
-const NumberPadSection = () => {
-  const [output, _setOutput] = useState('0');
+type Props = {
+  value: number,
+  onChange: (value: number) => void
+  onOk?: () => void
+}
+
+const NumberPadSection: React.FC<Props> = (props) => {
+  const output = props.value.toString();
   const setOutput = (stringNum: string) => {
+    let value;
     if (stringNum.length > 16) {
-      stringNum = stringNum.slice(0, 16);
+      value = parseFloat(stringNum.slice(0, 16));
     } else if (stringNum.length === 0) {
-      stringNum = '0';
+      value = 0;
+    } else {
+      value = parseFloat(stringNum);
     }
-    _setOutput(stringNum);
+    props.onChange(value);
   };
   const onNumberClick = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
@@ -65,7 +74,9 @@ const NumberPadSection = () => {
         setOutput(output + '.');
         break;
       case 'OK':
-
+        if (props.onOk){
+          props.onOk();
+        }
         break;
       case '删除':
         if (output.length === 1) {
