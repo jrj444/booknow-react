@@ -20,6 +20,10 @@ a {
   color: inherit;
 }
 
+:focus {
+  outline: none;
+}
+
 body {
   font-family: $font-hei;
   font-size: 16px;
