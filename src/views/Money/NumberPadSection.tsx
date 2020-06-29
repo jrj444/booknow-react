@@ -71,7 +71,7 @@ const NumberPadSection = () => {
         if (output.length === 1) {
           setOutput('0');
         } else {
-          setOutput(output.slice(0, -1));
+          setOutput(output.slice(0, -1) || '0');
         }
         break;
       case '清空':
