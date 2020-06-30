@@ -14,7 +14,7 @@ const MyLayout = styled(Layout)`
 type Category = 'expense' | 'income';
 
 function Money() {
-  const [selected, setSelected] = useState({
+  const [record, setRecord] = useState({
     tags: [] as string[],
     note: '',
     category: 'expense' as Category,
@@ -22,14 +22,14 @@ function Money() {
   });
   return (
     <MyLayout>
-      <TagsSection value={selected.tags}
-                   onChange={(tags) => setSelected({...selected, tags: tags})}/>
-      <NoteSection value={selected.note}
-                   onChange={(note) => setSelected({...selected, note: note})}/>
-      <CategorySection value={selected.category}
-                       onChange={(category) => setSelected({...selected, category: category})}/>
-      <NumberPadSection value={selected.amount}
-                        onChange={(amount) => setSelected({...selected, amount: amount})}
+      <TagsSection value={record.tags}
+                   onChange={(tags) => setRecord({...record, tags: tags})}/>
+      <NoteSection value={record.note}
+                   onChange={(note) => setRecord({...record, note: note})}/>
+      <CategorySection value={record.category}
+                       onChange={(category) => setRecord({...record, category: category})}/>
+      <NumberPadSection value={record.amount}
+                        onChange={(amount) => setRecord({...record, amount: amount})}
                         onOk={() => {}}/>
     </MyLayout>
   );
