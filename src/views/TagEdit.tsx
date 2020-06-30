@@ -52,9 +52,9 @@ const Center = styled.div`
 `;
 
 const TagEdit: React.FC = () => {
-  const {findTag} = useTags();
-  let {id} = useParams<Params>();
-  const tag = findTag(parseInt(id));
+  const {findTag, updateTag} = useTags();
+  let {id: idString} = useParams<Params>();
+  const tag = findTag(parseInt(idString));
   return (
     <Layout>
       <TopBar>
@@ -65,7 +65,7 @@ const TagEdit: React.FC = () => {
       <TagWrapper>
         <label>
           <span>标签名</span>
-          <input value={tag.name} type="text" placeholder="标签名"/>
+          <input value={tag.name} onChange={(e)=>updateTag(tag.id, e.target.value)} type="text" placeholder="标签名"/>
         </label>
       </TagWrapper>
       <Center>
