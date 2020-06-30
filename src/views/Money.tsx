@@ -15,7 +15,7 @@ type Category = 'expense' | 'income';
 
 function Money() {
   const [record, setRecord] = useState({
-    tags: [] as string[],
+    tagID: [] as number[],
     note: '',
     category: 'expense' as Category,
     amount: 0
@@ -25,8 +25,8 @@ function Money() {
   };
   return (
     <MyLayout>
-      <TagsSection value={record.tags}
-                   onChange={(tags) => onChange({tags})}/>
+      <TagsSection value={record.tagID}
+                   onChange={(tagID) => onChange({tagID})}/>
       <NoteSection value={record.note}
                    onChange={(note) => onChange({note})}/>
       <CategorySection value={record.category}
