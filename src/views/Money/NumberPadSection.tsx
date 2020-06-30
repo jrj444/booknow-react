@@ -74,7 +74,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
         setOutput(output + '.');
         break;
       case 'OK':
-        if (props.onOk){
+        if (props.onOk) {
           props.onOk();
         }
         break;
