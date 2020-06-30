@@ -24,6 +24,10 @@ a {
   outline: none;
 }
 
+button, input {
+  font: inherit;
+}
+
 .clearfix::after {
   content: '';
   display: block;
