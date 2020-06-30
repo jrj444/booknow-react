@@ -20,16 +20,19 @@ function Money() {
     category: 'expense' as Category,
     amount: 0
   });
+  const onChange = (recordObj: Partial<typeof record>) => {
+    setRecord({...record, ...recordObj});
+  };
   return (
     <MyLayout>
       <TagsSection value={record.tags}
-                   onChange={(tags) => setRecord({...record, tags: tags})}/>
+                   onChange={(tags) => onChange({tags})}/>
       <NoteSection value={record.note}
-                   onChange={(note) => setRecord({...record, note: note})}/>
+                   onChange={(note) => onChange({note})}/>
       <CategorySection value={record.category}
-                       onChange={(category) => setRecord({...record, category: category})}/>
+                       onChange={(category) => onChange({category})}/>
       <NumberPadSection value={record.amount}
-                        onChange={(amount) => setRecord({...record, amount: amount})}
+                        onChange={(amount) => onChange({amount})}
                         onOk={() => {}}/>
     </MyLayout>
   );
