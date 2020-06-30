@@ -23,9 +23,9 @@ const NavWrapper = styled.nav`
           margin-bottom: 2px;
         }
         &.selected {
-          color: #ff6600;
+          color: #027aff;
           .icon{
-            fill: #ff6600;
+            fill: #027aff;
           }
         }
       }
