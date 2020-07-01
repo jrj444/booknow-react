@@ -1,15 +1,16 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {createID} from './lib/createID';
-
-const defaultTags = [
-  {id: createID(), name: '购物'},
-  {id: createID(), name: '饮食'},
-  {id: createID(), name: '住宿'},
-  {id: createID(), name: '交通'},
-];
+import {useUpdate} from './hooks/useUpdate';
 
 const useTags = () => {
-  const [tags, setTags] = useState<{ id: number, name: string }[]>(defaultTags);
+  const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
+  useEffect(() => {
+    setTags(JSON.parse(window.localStorage.getItem('tagList') || '[]'));
+  }, []);
+  useUpdate(() => {
+    window.localStorage.setItem('tagList', JSON.stringify(tags));
+  }, [tags]);
+
   const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
   const findTagIndex = (id: number) => {
     let result = -1;
@@ -27,7 +28,13 @@ const useTags = () => {
   const deleteTag = (id: number) => {
     setTags(tags.filter(tag => tag.id !== id));
   };
-  return {tags, setTags, findTag, updateTag, findTagIndex, deleteTag};
+  const addTag = () => {
+    const tagName = window.prompt('请输入标签名：');
+    if (tagName !== null) {
+      setTags([...tags, {id: createID(), name: tagName}]);
+    }
+  };
+  return {tags, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag};
 };
 
 export {useTags};
