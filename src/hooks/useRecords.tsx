@@ -1,12 +1,12 @@
 import {useEffect, useState} from 'react';
 import {useUpdate} from './useUpdate';
 
-type RecordData = {
+export type RecordData = {
   tagID: number[]
   note: string
   category: 'expense' | 'income'
   amount: string
-  createTime?: string
+  createTime: string
 }
 
 const useRecords = () => {
@@ -28,7 +28,9 @@ const useRecords = () => {
       window.alert('请选择标签噢');
       return false;
     }
-    setRecords([...records, record]);
+    const r = {...record, createTime: (new Date()).toISOString()};
+    setRecords([...records, r]);
+    return true;
   };
 
 

@@ -1,10 +1,10 @@
-import Layout from '../components/Layout';
+import Layout from 'components/Layout';
 import React from 'react';
-import {useTags} from '../hooks/useTags';
+import {useTags} from 'hooks/useTags';
 import styled from 'styled-components';
-import Icon from '../components/Icon';
+import Icon from 'components/Icon';
 import {Link} from 'react-router-dom';
-import {Button} from '../components/Button';
+import {Button} from 'components/Button';
 
 const TagList = styled.ol`
   font-size: 16px; 
