@@ -5,7 +5,7 @@ type RecordData = {
   tagID: number[]
   note: string
   category: 'expense' | 'income'
-  amount: number
+  amount: string
   createTime?: string
 }
 
@@ -20,7 +20,7 @@ const useRecords = () => {
   }, [records]);
 
   const addRecord = (record: RecordData) => {
-    if (record.amount <= 0) {
+    if (parseFloat(record.amount) <= 0) {
       window.alert('请输入金额噢');
       return false;
     }

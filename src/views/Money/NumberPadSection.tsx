@@ -31,21 +31,18 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-  value: number,
-  onChange: (value: number) => void
+  value: string,
+  onChange: (value: string) => void
   onOk?: () => void
 }
 
 const NumberPadSection: React.FC<Props> = (props) => {
-  const output = props.value.toString();
-  const setOutput = (stringNum: string) => {
-    let value;
-    if (stringNum.length > 16) {
-      value = parseFloat(stringNum.slice(0, 16));
-    } else if (stringNum.length === 0) {
-      value = 0;
-    } else {
-      value = parseFloat(stringNum);
+  const output = props.value;
+  const setOutput = (value: string) => {
+    if (value.length > 16) {
+      value = value.slice(0, 16);
+    } else if (value.length === 0) {
+      value = '0';
     }
     props.onChange(value);
   };

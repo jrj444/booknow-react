@@ -18,7 +18,7 @@ const initRecord = {
   tagID: [] as number[],
   note: '',
   category: 'expense' as Category,
-  amount: 0
+  amount: '0'
 };
 
 function Money() {
