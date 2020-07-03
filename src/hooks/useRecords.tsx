@@ -17,7 +17,7 @@ const useRecords = () => {
 
   useUpdate(() => {
     window.localStorage.setItem('recordList', JSON.stringify(records));
-  }, [records]);
+  }, records);
 
   const addRecord = (record: RecordData) => {
     if (parseFloat(record.amount) <= 0) {

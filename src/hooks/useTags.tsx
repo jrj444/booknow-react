@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
-import {createID} from '../lib/createID';
+import {createID} from 'lib/createID';
 import {useUpdate} from './useUpdate';
+import {useHistory} from 'react-router-dom';
 
 const useTags = () => {
   const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
@@ -20,7 +21,7 @@ const useTags = () => {
   }, []);
   useUpdate(() => {
     window.localStorage.setItem('tagList', JSON.stringify(tags));
-  }, [tags]);
+  }, tags);
 
   const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
   const findTagIndex = (id: number) => {
@@ -36,8 +37,10 @@ const useTags = () => {
   const updateTag = (id: number, name: string) => {
     setTags(tags.map(tag => tag.id === id ? {id, name} : tag));
   };
+  const history = useHistory();
   const deleteTag = (id: number) => {
     setTags(tags.filter(tag => tag.id !== id));
+    history.goBack();
   };
   const addTag = () => {
     const tagName = window.prompt('请输入标签名：');
