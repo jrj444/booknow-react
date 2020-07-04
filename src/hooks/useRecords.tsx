@@ -32,8 +32,6 @@ const useRecords = () => {
     setRecords([...records, r]);
     return true;
   };
-
-
   return {records, addRecord};
 };
 

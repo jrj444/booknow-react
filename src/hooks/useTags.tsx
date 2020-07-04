@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import {createID} from 'lib/createID';
 import {useUpdate} from './useUpdate';
-import {useHistory} from 'react-router-dom';
 
 const useTags = () => {
   const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
@@ -34,13 +33,17 @@ const useTags = () => {
     }
     return result;
   };
-  const updateTag = (id: number, name: string) => {
-    setTags(tags.map(tag => tag.id === id ? {id, name} : tag));
+  const updateTag = (id: number, obj: { name: string }) => {
+    const index = findTagIndex(id);
+    const tagsClone = JSON.parse(JSON.stringify(tags));
+    tagsClone.splice(index, 1, {id: id, name: obj.name});
+    setTags(tagsClone);
   };
-  const history = useHistory();
   const deleteTag = (id: number) => {
-    setTags(tags.filter(tag => tag.id !== id));
-    history.goBack();
+    const index = findTagIndex(id);
+    const tagsClone = JSON.parse(JSON.stringify(tags));
+    tagsClone.splice(index, 1);
+    setTags(tagsClone);
   };
   const addTag = () => {
     const tagName = window.prompt('请输入标签名：');

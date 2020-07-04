@@ -59,24 +59,34 @@ const TagEdit: React.FC = () => {
   const onCLickBack = () => {
     history.goBack();
   };
-  return (
-    <Layout>
-      <TopBar>
-        <Icon name="left" onClick={onCLickBack}/>
-        <span>编辑标签</span>
-        <Icon/>
-      </TopBar>
-      <TagWrapper>
-        <label>
-          <span>标签名</span>
-          <input value="" onChange={(e) => updateTag(tag.id, e.target.value)} type="text" placeholder="标签名"/>
-        </label>
-      </TagWrapper>
-      <Center>
-        <Button onClick={() => {deleteTag(tag.id)}}>删除标签</Button>
-      </Center>
-    </Layout>
-  );
+  if (tag) {
+    return (
+      <Layout>
+        <TopBar>
+          <Icon name="left" onClick={onCLickBack}/>
+          <span>编辑标签</span>
+          <Icon/>
+        </TopBar>
+        <TagWrapper>
+          <label>
+            <span>标签名</span>
+            <input value={tag.name} onChange={(e) => updateTag(tag.id, {name: e.target.value})}
+                   placeholder="标签名" type="text"/>
+          </label>
+        </TagWrapper>
+        <Center>
+          <Button onClick={() => deleteTag(tag.id)}>删除标签</Button>
+        </Center>
+      </Layout>
+    );
+  } else {
+    return (
+      <div>
+        tag不存在
+      </div>
+    );
+  }
+
 };
 
 export {TagEdit};
