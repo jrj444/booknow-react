@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 
 const Wrapper = styled.section`
-  background: #f5f5f5;
+  background: #efefef;
   padding: 0 16px;
   font-size: 14px;
   > label {
@@ -15,7 +15,7 @@ const Wrapper = styled.section`
     > input {
       display: block;
       width: 100%;
-      height: 72px;
+      height: 64px;
       border: none;
       background: none;
     }
