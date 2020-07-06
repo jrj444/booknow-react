@@ -26,9 +26,11 @@ const TagWrapper = styled.div`
   > label {
     display: flex;
     align-items: center;
+    justify-content: center;
     > span {
       margin-right: 12px;
       white-space: nowrap;
+      padding-top: 4px;
     }
     > input {
       display: block;
