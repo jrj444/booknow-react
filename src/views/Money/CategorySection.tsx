@@ -11,15 +11,9 @@ const Wrapper = styled.section`
       text-align: center;
       padding: 18px 0;
       position: relative;
-      &.selected::after {
-        content: '';
-        display: block;
-        height: 4px;
-        background: #333333;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        left: 0;
+      &.selected {
+        background: #027aff;
+        color: #ffffff;
       }
     }
   }
