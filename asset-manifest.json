@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/booknow-react/static/css/main.079a52e4.chunk.css",
+    "main.js": "/booknow-react/static/js/main.b9b18c57.chunk.js",
+    "main.js.map": "/booknow-react/static/js/main.b9b18c57.chunk.js.map",
+    "runtime-main.js": "/booknow-react/static/js/runtime-main.800c4450.js",
+    "runtime-main.js.map": "/booknow-react/static/js/runtime-main.800c4450.js.map",
+    "static/js/2.4a2b4a1c.chunk.js": "/booknow-react/static/js/2.4a2b4a1c.chunk.js",
+    "static/js/2.4a2b4a1c.chunk.js.map": "/booknow-react/static/js/2.4a2b4a1c.chunk.js.map",
+    "index.html": "/booknow-react/index.html",
+    "precache-manifest.596b42181f520bd056db1c6731cc7105.js": "/booknow-react/precache-manifest.596b42181f520bd056db1c6731cc7105.js",
+    "service-worker.js": "/booknow-react/service-worker.js",
+    "static/css/main.079a52e4.chunk.css.map": "/booknow-react/static/css/main.079a52e4.chunk.css.map",
+    "static/js/2.4a2b4a1c.chunk.js.LICENSE.txt": "/booknow-react/static/js/2.4a2b4a1c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.800c4450.js",
+    "static/js/2.4a2b4a1c.chunk.js",
+    "static/css/main.079a52e4.chunk.css",
+    "static/js/main.b9b18c57.chunk.js"
+  ]
+}
